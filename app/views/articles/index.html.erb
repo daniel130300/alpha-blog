@@ -3,24 +3,35 @@
 <%= button_to 'Create new article', new_article_path, method: :get%>
 </br>
 
-<table>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th colspan="3">Actions</th>
-        </tr>
-    </thead>
+<% @articles.each do |article| %>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="5">Created by: <%= article.user.username if article.user %></th>
+            </tr>
 
-    <tbody>
-        <% @articles.each do |article| %>
-        <tr>
-            <td><%= article.title %></td>
-            <td><%= article.description %></td>
-            <td><%= button_to 'Update', edit_article_path(article.id), method: :get%></td>
-            <td><%= button_to 'Show', article_path(article.id), method: :get %></td>
-            <td><%= button_to 'Delete', article_path(article.id), method: :delete, data: {confirm: "Are you sure?"} %></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th colspan="3">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><%= article.title %></td>
+                <td><%= article.description %></td>
+                <td><%= button_to 'Update', edit_article_path(article.id), method: :get%></td>
+                <td><%= button_to 'Show', article_path(article.id), method: :get %></td>
+                <td><%= button_to 'Delete', article_path(article.id), method: :delete, data: {confirm: "Are you sure?"} %></td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="5"><i>created <%= time_ago_in_words(article.created_at) %> ago, edited <%= time_ago_in_words(article.updated_at) %> ago</i></td>
+            </tr>
+        </tfoot>
+    </table>    
+<% end %>
+

@@ -1,7 +1,8 @@
-<h1>Showing Article Details</h1>
-
-<p><strong>Title: <%= @article.title %></strong></p>
-<p><strong>Description: <%= @article.description %></strong></p>
+<h1>Article Details</h1>
+<p><strong>Created by: <%= @article.user.username if @article.user %></strong></p>
+<p>Title: <%= @article.title %></p>
+<p>Description: <%= @article.description %></p>
+<p><i>created <%= time_ago_in_words(@article.created_at) %> ago, edited <%= time_ago_in_words(@article.updated_at) %> ago</i></p>
 
 <%= button_to 'Update', edit_article_path(@article.id), method: :get %>
 </br>
