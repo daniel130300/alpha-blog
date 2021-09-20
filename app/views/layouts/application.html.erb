@@ -11,7 +11,18 @@
   </head>
 
   <body>
-    <%= render 'layouts/messages'%>
-    <%= yield %>
+    <%= render 'layouts/navigation'%>
+
+    <div class="page">
+      <%= render 'layouts/messages'%>
+      <%= yield %>
+    </div>
+
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-4 bg-dark">
+      <div class="container d-flex align-items-center">
+        <span class="text-muted">© 2021 Company, Inc</span>
+      </div>
+    </footer>
   </body>
 </html>
+</div> 

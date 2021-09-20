@@ -1,0 +1,22 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+html{
+    min-height: 100vh;
+}
+.page{
+    margin-top: 7rem;
+}
+
+.jumbotron {
+    background-image: asset-url('jumbotron-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}
