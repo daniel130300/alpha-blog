@@ -1,0 +1,27 @@
+<div class="container-fluid">
+
+    <h2 class="text-center text-white"><%= @user.username %></h2>
+    <div class="text-center my-4">
+        <%= gravatar_for @user, size:200%>
+    </div>
+    <% if logged_in? && @user == current_user%>
+        <div class="text-center my-4">
+            <%= button_to "Edit your profile", edit_user_path(@user), method: :get, class: "btn btn-primary"%>
+        </div>
+    <% end %>
+    <h3 class="text-center text-white my-3">Articles</h3>
+    <% if will_paginate @articles%>
+        <div class="flickr_pagination mt-1 mb-4">
+            <%= will_paginate @articles, :container => false %>
+        </div>
+    <% end %>   
+    
+    <%= render 'articles/article'%>
+
+    <% if will_paginate @articles%>
+        <div class="flickr_pagination my-4">
+            <%= will_paginate @articles, :container => false %>
+        </div>
+    <% end %> 
+
+</div>

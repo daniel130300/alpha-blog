@@ -1,19 +1,37 @@
+<div class="card text-white text-center bg-dark mb-4">
+    <div class="card-body d-flex flex-column ">
+        <%= form_with(model: @user, local: true) do |f| %>
+        <div class="row align-items-center mb-3 mx-0 px-0">
+            <div class="col-4">
+                <%= f.label :username, 'Username: ', class: "form-label text-white fs-6" %>
+            </div>
+
+            <div class="col-8">
+                <%= f.text_field :username, class: "form-control", placeholder: "Enter your username" %>
+            </div>
+        </div>
+        <div class="row align-items-center mb-3 mx-0 px-0">
+            <div class="col-4">
+                <%= f.label :email, 'Email: ', class: "form-label text-white fs-6" %>
+            </div>
+
+            <div class="col-8">
+                <%= f.email_field :email, class: "form-control", placeholder: "Enter your email" %>
+            </div>
+        </div>
+        <div class="row align-items-center mb-3 mx-0 px-0">
+            <div class="col-4">
+                <%= f.label :password_digest, "Password: ", class: "form-label text-white fs-6" %>
+            </div>
+
+            <div class="col-8">
+                <%= f.password_field :password_digest, class: "form-control", placeholder: "Choose a password"%>
+            </div>
+        </div>
+        <%= f.submit(@user.new_record? ? "Sign Up" : "Update account", class: "btn btn-primary")%>
+        <% end %>
+    </div>
+</div>
+    
 <%= render 'shared/errors', obj: @user%>
-<%= form_with(model: @user, local: true) do |f| %>
-    <div class="mb-3 row"> 
-        <%= f.label :username %>
-        <%= f.text_field :username, class: "form-control", placeholder: "Enter your username" %>
-    </div>
 
-    <div class="mb-3 row"> 
-        <%= f.label :email %>
-        <%= f.email_field :email, class: "form-control", placeholder: "Enter your email" %>
-    </div>
-
-    <div class="mb-3 row"> 
-        <%= f.label :password_digest, "Password" %>
-        <%= f.password_field :password_digest, class: "form-control", placeholder: "Choose a password"%>
-    </div>
-
-    <%= f.submit(@user.new_record? ? "Sign Up" : "Update account", class: "btn btn-primary")%>
-<% end %>

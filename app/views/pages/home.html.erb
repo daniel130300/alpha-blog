@@ -1,7 +1,9 @@
 <div class="container-fluid">
-    <div class="h-100 p-5 text-white text-center bg-dark rounded-3 mt-4 jumbotron">
-        <h2>Alpha Blog</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nostrum quibusdam accusamus quae nisi recusandae explicabo soluta voluptatum, voluptas amet vero nemo similique suscipit. Sunt inventore distinctio natus vero dolorum?</p>
-        <a class="btn btn-outline-light mt-4" href="<%= signup_path %>">Sign Up</a>
+    <div class="d-flex flex-column justify-content-center algin-items-center">
+        <div class="h-100 p-5 text-white text-center bg-dark rounded-3 mt-4 jumbotron">
+            <h2>Alpha Blog</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nostrum quibusdam accusamus quae nisi recusandae explicabo soluta voluptatum, voluptas amet vero nemo similique suscipit. Sunt inventore distinctio natus vero dolorum?</p>
+            <%= button_to 'Sign Up', signup_path, method: :get, class: "btn btn-outline-light"%>
+        </div>
     </div>
 </div>

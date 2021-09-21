@@ -1,15 +1,26 @@
+<div class="card text-white text-center bg-dark mb-4">
+    <div class="card-body d-flex flex-column">
+        <%= form_with(model: @article, local: true) do |f| %>
+        <div class="row align-items-center mb-3 mx-0 px-0">
+            <div class="col-4">
+                <%= f.label :title, 'Title: ', class: "form-label text-white fs-6" %>
+            </div>
+
+            <div class="col-8">
+                <%= f.text_field :title, class: "form-control", placeholder: "Enter the article's title" %>
+            </div>
+        </div>
+        <div class="row align-items-center mb-3 mx-0 px-0">
+            <div class="col-4">
+                <%= f.label :description, 'Description: ', class: "form-label text-white fs-6" %>
+            </div>
+
+            <div class="col-8">
+                <%= f.text_area :description, rows:20, class: "form-control", placeholder: "Enter the article's description" %>
+            </div>
+        </div>
+        <%= f.submit(@article.new_record? ? "Create article" : "Update article", class: "btn btn-outline-primary")%>
+        <% end %>
+    </div>
+</div>
 <%= render 'shared/errors', obj: @article %>
-<%= form_with(model: @article, local: true) do |f| %>
-
-    <p> 
-        <%= f.label :title%>
-        <%= f.text_field :title %>
-    </p>
-
-    <p> 
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-    </p>
-
-    <%= f.submit %>
-<% end %>
