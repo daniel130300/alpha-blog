@@ -15,7 +15,7 @@
     <%= render 'articles/article'%>
 
     <div class="text-center">
-        <%= button_to 'Return to alpha bloggers listings', users_path, method: :get, class: "btn btn-outline-light mb-4"%>
+        <%= button_to 'Return to categories listings', categories_path, method: :get, class: "btn btn-outline-light mb-4"%>
     </div>
 
     <% if will_paginate @articles%>
