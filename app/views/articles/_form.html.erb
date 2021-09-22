@@ -3,7 +3,7 @@
         <%= form_with(model: @article, local: true) do |f| %>
         <div class="row mb-3 mx-0 px-0">
             <div class="col-5">
-                <%= f.label :title, 'Title: ', class: "form-label text-white fs-6" %>
+                <%= f.label :title, 'Title:', class: "form-label text-white fs-6" %>
             </div>
 
             <div class="col-7">
@@ -12,13 +12,24 @@
         </div>
         <div class="row mb-3 mx-0 px-0">
             <div class="col-5">
-                <%= f.label :description, 'Description: ', class: "form-label text-white fs-6" %>
+                <%= f.label :description, 'Description:', class: "form-label text-white fs-6" %>
             </div>
 
             <div class="col-7">
                 <%= f.text_area :description, rows:20, class: "form-control", placeholder: "Enter the article's description" %>
             </div>
         </div>
+
+        <div class="row mb-3 mx-0 px-0">
+            <div class="col-5">
+                <%= f.label :category, 'Category:', class: "form-label text-white fs-6" %>
+            </div>
+
+            <div class="col-7">
+                <%= f.collection_select(:category_ids, Category.all, :id, :name, {prompt: "Please select one or more categories"}, { multiple: true, size: 5, class:"form-select form-select-sm"}) %>
+            </div>
+        </div>
+
         <%= f.submit(@article.new_record? ? "Create article" : "Update article", class: "btn btn-outline-primary")%>
         <% end %>
     </div>

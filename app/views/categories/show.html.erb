@@ -1,14 +1,8 @@
 <div class="container">
-    <h2 class="text-center text-white"><%= @user.username %></h2>
-    <div class="text-center my-4">
-        <%= gravatar_for @user, size:200%>
-    </div>
-    <% if logged_in? && @user == current_user%>
+    <h1 class="text-center text-white my-4">Category: <%= @category.name %></h1>
+     <% if logged_in? && current_user.admin?%>
         <div class="text-center my-4">
-            <%= button_to "Edit your profile", edit_user_path(@user), method: :get, class: "btn btn-outline-primary"%>
-        </div>
-        <div class="text-center my-4">
-            <%= button_to 'Delete your profile', user_path(current_user), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+            <%= button_to "Edit category name", edit_category_path(@category), method: :get, class: "btn btn-outline-primary"%>
         </div>
     <% end %>
     <h3 class="text-center text-white my-3">Articles</h3>

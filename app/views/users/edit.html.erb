@@ -1,4 +1,7 @@
-<div class="container-fluid">
+<div class="container">
     <h2 class="text-center text-white my-4">Edit Your Profile</h2>
     <%= render 'form' %>
+    <div class="text-center">
+        <%= button_to 'Return to profile', user_path(@user), method: :get, class: "btn btn-outline-light"%>
+    </div>
 </div>

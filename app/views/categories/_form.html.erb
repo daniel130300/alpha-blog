@@ -1,0 +1,16 @@
+<div class="card text-white text-center bg-dark mb-4 w-100">
+    <div class="card-body d-flex flex-column justify-content-center">
+        <%= form_with(model: @category, local: true) do |f| %>
+        <div class="row mb-3">
+            <div class="col-3">
+                <%= f.label :name, 'Name:', class: "form-label text-white fs-6" %>
+            </div>
+            <div class="col-9">
+                <%= f.text_field :name, class: "form-control", placeholder: "Enter the category's name" %>
+            </div>
+        </div>
+        <%= f.submit(@category.new_record? ? "Create category" : "Update category", class: "btn btn-outline-primary") %>
+        <% end %>
+    </div>
+</div>
+<%= render 'shared/errors', obj: @category %>
